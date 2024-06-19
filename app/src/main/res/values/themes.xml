@@ -11,6 +11,35 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+    </style>
+
+    <!--Title style-->
+    <style name="SemiboldText">
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_large</item>
+    </style>
+
+
+    <style name="RegularText">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_regular</item>
+    </style>
+
+    <style name="ThinText">
+        <item name="android:fontFamily">@font/sf_pro_display_thin</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+
+    <!--Card style-->
+    <style name="SearchCardStyle">
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+    </style>
+
+    <!--ShapeableImage style -->
+    <style name="ShapeableImageStyle">
+        <item name="cornerSize">10%</item>
     </style>
 </resources>

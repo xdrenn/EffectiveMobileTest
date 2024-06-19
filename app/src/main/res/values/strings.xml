@@ -1,8 +1,17 @@
 <resources>
     <string name="app_name">EffectiveMobileTest</string>
-    <string name="title_home">Авиабилеты</string>
-    <string name="title_hotels">Отели</string>
-    <string name="title_destination">Короче</string>
-    <string name="title_subscriptions">Подписки</string>
-    <string name="title_profile">Профиль</string>
+    <!-- Bottom Navigation -->
+    <string name="label_home">Авиабилеты</string>
+    <string name="label_hotels">Отели</string>
+    <string name="label_destination">Короче</string>
+    <string name="label_subscriptions">Подписки</string>
+    <string name="label_profile">Профиль</string>
+
+    <!-- Home -->
+    <string name="title_home">Поиск дешевых\nавиабилетов</string>
+    <string name="second_title_home">Музыкально отлететь</string>
+    <string name="search_icon">Search icon</string>
+    <string name="search_from_hint">Откуда - Москва</string>
+    <string name="search_to_hint">Куда - Турция</string>
+
 </resources>

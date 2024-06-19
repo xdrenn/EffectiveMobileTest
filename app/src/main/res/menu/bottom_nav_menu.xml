@@ -4,26 +4,26 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/airplane_icon"
-        android:title="@string/title_home" />
+        android:title="@string/label_home" />
 
     <item
         android:id="@+id/navigation_hotels"
         android:icon="@drawable/hotels_icon"
-        android:title="@string/title_hotels" />
+        android:title="@string/label_hotels" />
 
     <item
         android:id="@+id/navigation_destination"
         android:icon="@drawable/destination_icon"
-        android:title="@string/title_destination" />
+        android:title="@string/label_destination" />
 
     <item
         android:id="@+id/navigation_subscriptions"
         android:icon="@drawable/subscriptions_icon"
-        android:title="@string/title_subscriptions" />
+        android:title="@string/label_subscriptions" />
 
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/profile_icon"
-        android:title="@string/title_profile" />
+        android:title="@string/label_profile" />
 
 </menu>

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.effictivemobile_test"
+    namespace = "com.example.effectivemobiletest"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.effictivemobile_test"
+        applicationId = "com.example.effectivemobiletest"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.adapter.delegates)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

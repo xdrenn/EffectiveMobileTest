@@ -1,4 +1,4 @@
-package com.example.effictivemobile_test
+package com.example.effectivemobiletest
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

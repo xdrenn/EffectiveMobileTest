@@ -1,4 +1,4 @@
-package com.example.effictivemobile_test
+package com.example.effectivemobiletest
 
 import org.junit.Test
 
