@@ -1,13 +1,34 @@
 package com.example.effectivemobiletest.presentation.ui.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import android.util.Log
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.effectivemobiletest.data.model.OffersDTO
+import com.example.effectivemobiletest.domain.interactors.OffersInteractor
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import java.io.IOException
+import javax.inject.Inject
 
-class HomeViewModel : ViewModel() {
+@HiltViewModel
+class HomeViewModel @Inject constructor(private val offersInteractor: OffersInteractor) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    private val _offers= MutableStateFlow(listOf<OffersDTO.Offer>())
+    val offers = _offers.asStateFlow()
+
+    init {
+        getOffers()
     }
-    val text: LiveData<String> = _text
+
+    private fun getOffers() = viewModelScope.launch(Dispatchers.IO) {
+         try {
+             _offers.value = offersInteractor.getOffersList()
+         } catch(e: IOException) {
+             Log.d("Api error", e.toString())
+         }
+    }
 }
