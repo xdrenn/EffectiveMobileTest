@@ -13,5 +13,9 @@
     <string name="search_icon">Search icon</string>
     <string name="search_from_hint">Откуда - Москва</string>
     <string name="search_to_hint">Куда - Турция</string>
+    <string name="offers_price">от</string>
+    <string name="die_antwoord">Die Antwoord</string>
+    <string name="budapest">Будапешт</string>
+    <string name="_2200">от 2200 р</string>
 
 </resources>
