@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/musical_suggestions_item"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@color/black"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginEnd="15dp"
+    android:layout_marginStart="5dp">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/band_image"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:text="Die Antwoord"
+        android:text="@string/die_antwoord"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,10 +36,10 @@
         style="@style/ThinText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Будапешт"
-        android:textSize="11sp"
+        android:layout_marginTop="4dp"
+        android:text="@string/budapest"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintHorizontal_bias="0.067"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/band_name" />
 
@@ -47,9 +48,10 @@
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
         android:src="@drawable/airplane_icon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/city_name" />
 
@@ -59,12 +61,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:text="от 2200 р"
-        android:textSize="11sp"
+        android:text="@string/_2200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/city_name"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.8" />
 </androidx.constraintlayout.widget.ConstraintLayout>
