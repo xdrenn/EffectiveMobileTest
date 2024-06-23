@@ -54,4 +54,10 @@ class HomeFragment : Fragment() {
             }
         }
     }
+
+    private fun showSearchInfo() {
+        binding.editTextTo.setOnClickListener {
+
+        }
+    }
 }

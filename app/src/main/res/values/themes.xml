@@ -14,11 +14,17 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
     </style>
 
-    <!--Title style-->
+    <!--Text style-->
     <style name="SemiboldText">
         <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/text_large</item>
+    </style>
+
+    <style name="RegularItalicText">
+        <item name="android:fontFamily">@font/sf_pro_display_regular_italic</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_regular</item>
     </style>
 
 
@@ -39,8 +45,16 @@
         <item name="cardCornerRadius">@dimen/card_corner_radius</item>
     </style>
 
-    <!--ShapeableImage style -->
+    <!--ShapeableImage style-->
     <style name="ShapeableImageStyle">
         <item name="cornerSize">10%</item>
+    </style>
+
+    <!--Button style-->
+    <style name="ButtonAllTickets" parent="ThemeOverlay.Material3.Button">
+        <item name="backgroundTint">@color/blue</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAppearance">@style/RegularItalicText</item>
+        <item name="cornerRadius">@dimen/button_corner_radius</item>
     </style>
 </resources>

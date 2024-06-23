@@ -8,6 +8,7 @@
     <dimen name="text_regular">16sp</dimen>
     <dimen name="text_small">12sp</dimen>
 
-    <!--Card sizes-->
+    <!--Corner radius-->
     <dimen name="card_corner_radius">18dp</dimen>
+    <dimen name="button_corner_radius">8dp</dimen>
 </resources>
