@@ -39,5 +39,19 @@
     <string name="_07_00">07:00</string>
     <string name="airlines_color">airlines color</string>
     <string name="_2_500">2 500 $</string>
+    <string name="moscow_sochi">Москва-Сочи</string>
+    <string name="prices_chart">График цен</string>
+    <string name="toggle_button_filter">Фильтр</string>
+    <string name="_6_990">6 990$</string>
+    <string name="_03_15_07_10">03:15-07:10</string>
+    <string name="dme">DME</string>
+    <string name="aer">AER</string>
+    <string name="_03_15">03:15</string>
+    <string name="_07_10">07:10</string>
+    <string name="dash">—</string>
+    <string name="travel_time">4ч в пути</string>
+    <string name="slash">/</string>
+    <string name="no_transfers">Без пересадок</string>
+    <string name="comfortable">Самый удобный</string>
 
 </resources>

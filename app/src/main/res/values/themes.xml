@@ -41,7 +41,7 @@
     </style>
 
     <!--Card style-->
-    <style name="SearchCardStyle">
+    <style name="CardStyle">
         <item name="cardCornerRadius">@dimen/card_corner_radius</item>
     </style>
 
@@ -56,5 +56,12 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:textAppearance">@style/RegularItalicText</item>
         <item name="cornerRadius">@dimen/button_corner_radius</item>
+    </style>
+
+    <style name="ButtonFilterCharts" parent="ThemeOverlay.Material3.Button">
+        <item name="backgroundTint">@color/dark_blue</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAppearance">@style/RegularItalicText</item>
+        <item name="cornerRadius">@dimen/toggle_button_corner_radius</item>
     </style>
 </resources>

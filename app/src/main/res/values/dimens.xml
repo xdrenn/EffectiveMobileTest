@@ -11,4 +11,5 @@
     <!--Corner radius-->
     <dimen name="card_corner_radius">18dp</dimen>
     <dimen name="button_corner_radius">8dp</dimen>
+    <dimen name="toggle_button_corner_radius">20dp</dimen>
 </resources>
