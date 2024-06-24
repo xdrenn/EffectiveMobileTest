@@ -5,56 +5,117 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.effectivemobiletest.R
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import com.example.effectivemobiletest.databinding.FragmentSelectedCityBinding
+import android.text.format.DateFormat
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.effectivemobiletest.data.model.TicketsOffersDTO
+import com.example.effectivemobiletest.presentation.ui.MainActivity
+import com.example.effectivemobiletest.presentation.ui.adapters.ticketsOffersAdapter
+import com.google.android.material.datepicker.MaterialDatePicker
+import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SelectedCityFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SelectedCityFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+
+    private var _binding: FragmentSelectedCityBinding? = null
+    private val binding get() = _binding!!
+
+    private val viewModel: SelectedCityViewModel by viewModels()
+
+    private var adapter: ListDelegationAdapter<List<TicketsOffersDTO.TicketsOffer>>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_selected_city, container, false)
+    ): View {
+        _binding = FragmentSelectedCityBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SelectedCityFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SelectedCityFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initCitiesFields()
+        initFilterChips()
+        initAdapter()
+    }
+
+    private fun initCitiesFields() {
+        viewModel.setCityFrom(arguments?.getString("selectedCityFrom") ?: "")
+        viewModel.setCityTo(arguments?.getString("selectedCityTo") ?: "")
+
+        binding.changeCities.setOnClickListener {
+            viewModel.setCityFrom(viewModel.cityTo.value)
+            viewModel.setCityTo(viewModel.cityFrom.value)
+        }
+
+        binding.backBtn.setOnClickListener {
+            (requireActivity() as MainActivity).backToPreviousFragment()
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.cityTo.collect { value ->
+                binding.cityTo.text = value
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.cityFrom.collect { value ->
+                binding.cityFrom.text = value
+            }
+        }
+    }
+
+    private fun initFilterChips() {
+        binding.backChip.setOnClickListener {
+            showCalendar(childFragmentManager){}
+        }
+
+        binding.dateChip.setOnClickListener {
+            showCalendar(
+                childFragmentManager,
+            ) { dateInMillis ->
+                viewModel.setFlightDate(dateInMillis)
+            }
+
+            viewLifecycleOwner.lifecycleScope.launch {
+                viewModel.flightDate.collect { dateInMillis ->
+                    val dateFormat = DateFormat.format("d LLL, E", dateInMillis)
+                    binding.dateChip.text = dateFormat
                 }
             }
+        }
+    }
+
+    private fun showCalendar(
+        fragmentManager: FragmentManager,
+        onDateTimeSet: (date: Long) -> Unit
+    ) {
+        MaterialDatePicker
+            .Builder
+            .datePicker()
+            .setTitleText("Select date of flight")
+            .build()
+            .show(fragmentManager, "DATE_PICKER")
+    }
+
+    private fun initAdapter() {
+
+        adapter = ListDelegationAdapter(ticketsOffersAdapter())
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.ticketsOffers.collect { list ->
+                adapter?.items = list
+                binding.ticketsOffersRv.adapter = adapter
+                binding.ticketsOffersRv.layoutManager = LinearLayoutManager(
+                    context, LinearLayoutManager.HORIZONTAL, false
+                )
+            }
+        }
     }
 }

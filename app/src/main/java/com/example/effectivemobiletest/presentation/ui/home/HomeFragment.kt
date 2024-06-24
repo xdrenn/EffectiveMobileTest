@@ -22,9 +22,11 @@ import com.example.effectivemobiletest.presentation.ui.adapters.offersAdapter
 import com.example.effectivemobiletest.presentation.ui.search.SearchFragment
 import com.example.effectivemobiletest.presentation.ui.selected.SelectedCityFragment
 import com.example.effectivemobiletest.utils.Constants
+import com.example.effectivemobiletest.utils.CyrillicFilter
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import java.util.regex.Pattern
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -68,13 +70,13 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun initSearchCityFrom(){
+    private fun initSearchCityFrom() {
+
         binding.editTextFrom.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -87,7 +89,7 @@ class HomeFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.cityFrom.collect { value ->
-                binding.editTextFrom.setText(value)
+                binding.editTextFrom.setText(CyrillicFilter.isCyrillic(value))
                 binding.editTextFrom.setSelection(value.length)
             }
         }
@@ -103,4 +105,5 @@ class HomeFragment : Fragment() {
         }
             (requireActivity() as MainActivity).showSearchDialog(bundle = bundle)
     }
+
 }

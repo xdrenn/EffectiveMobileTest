@@ -27,7 +27,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/back_btn"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="4dp"
@@ -38,23 +38,18 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.544" />
 
-            <EditText
+            <TextView
                 android:id="@+id/city_from"
                 style="@style/RegularText"
-                android:layout_width="0dp"
-                android:layout_height="49dp"
+                android:layout_width="328dp"
+                android:layout_height="34dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="5dp"
-                android:background="@null"
-                android:hint="@string/search_from_hint"
-                android:inputType="text|textCapWords"
-                android:maxLines="1"
-                android:textAppearance="@style/RegularText"
-                android:textColorHint="@color/bright_gray"
+                android:text="@string/moscow"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/back_btn"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.divider.MaterialDivider
@@ -68,30 +63,25 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/city_from" />
 
-            <EditText
+            <TextView
                 android:id="@+id/city_to"
                 style="@style/RegularText"
-                android:layout_width="0dp"
-                android:layout_height="49dp"
+                android:layout_width="325dp"
+                android:layout_height="33dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="5dp"
-                android:layout_marginBottom="10dp"
-                android:background="@null"
-                android:hint="@string/search_to_hint"
-                android:inputType="text|textCapWords"
-                android:maxLines="1"
-                android:textAppearance="@style/RegularText"
-                android:textColorHint="@color/bright_gray"
+                android:layout_marginBottom="16dp"
+                android:text="@string/sochi"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView" />
+                app:layout_constraintStart_toEndOf="@+id/back_btn" />
 
             <ImageView
                 android:id="@+id/change_cities"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_marginEnd="24dp"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_marginEnd="12dp"
                 android:layout_marginBottom="16dp"
                 android:contentDescription="@string/delete_icon"
                 android:src="@drawable/arrows"
@@ -195,6 +185,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tickets_offers_rv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"

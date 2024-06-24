@@ -209,7 +209,7 @@
                     app:layout_constraintVertical_bias="0.197" />
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/back_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
@@ -231,7 +231,7 @@
                     android:text="@string/minsk"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintStart_toEndOf="@+id/back_btn"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.google.android.material.divider.MaterialDivider
@@ -263,7 +263,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/imageView" />
+                    app:layout_constraintStart_toEndOf="@+id/back_btn" />
 
                 <ImageView
                     android:id="@+id/delete_search"
