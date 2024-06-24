@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".SelectedCityFragment"
+    tools:context=".presentation.ui.selected.SelectedCityFragment"
     android:background="@color/black">
 
 
@@ -40,6 +40,7 @@
 
             <EditText
                 android:id="@+id/city_from"
+                style="@style/RegularText"
                 android:layout_width="0dp"
                 android:layout_height="49dp"
                 android:layout_marginStart="8dp"
@@ -69,6 +70,7 @@
 
             <EditText
                 android:id="@+id/city_to"
+                style="@style/RegularText"
                 android:layout_width="0dp"
                 android:layout_height="49dp"
                 android:layout_marginStart="8dp"

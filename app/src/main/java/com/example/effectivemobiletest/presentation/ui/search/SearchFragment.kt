@@ -3,13 +3,18 @@ package com.example.effectivemobiletest.presentation.ui.search
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.effectivemobiletest.R
 import com.example.effectivemobiletest.databinding.FragmentSearchBinding
+import com.example.effectivemobiletest.presentation.ui.selected.SelectedCityFragment
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -20,6 +25,8 @@ class SearchFragment : BottomSheetDialogFragment(R.layout.fragment_search) {
     private val binding get() = _binding!!
 
     private val viewModel: SearchViewModel by viewModels()
+
+    private var bundle = Bundle()
 
 
     override fun onCreateView(
@@ -32,6 +39,12 @@ class SearchFragment : BottomSheetDialogFragment(R.layout.fragment_search) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (view.parent as View).layoutParams.height = WindowManager.LayoutParams.MATCH_PARENT
+        (dialog as BottomSheetDialog).behavior.state = BottomSheetBehavior.STATE_EXPANDED
+
+        viewModel.setCityFrom(arguments?.getString("cityFrom") ?: "")
+        Log.d("bundle", arguments?.getString("cityFrom") ?: "error")
 
         searchSetDirectionTo()
         setSearchOptionsClick()
@@ -62,46 +75,37 @@ class SearchFragment : BottomSheetDialogFragment(R.layout.fragment_search) {
     }
 
     private fun initSearch() {
+        val fragment = SelectedCityFragment()
+
+
         binding.searchEdTo.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                TODO("Not yet implemented")
-            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 viewModel.setCityTo(s.toString())
+                bundle.putString("data", s.toString())
+                fragment.arguments = bundle
             }
 
-            override fun afterTextChanged(s: Editable?) {
-                TODO("Not yet implemented")
-            }
-
-        })
-
-        binding.searchEdFrom.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                TODO("Not yet implemented")
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                viewModel.setCityFrom(s.toString())
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                TODO("Not yet implemented")
-            }
+            override fun afterTextChanged(s: Editable?) {}
 
         })
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.cityTo.collect { value ->
                 binding.searchEdTo.setText(value)
+                binding.searchEdTo.setSelection(value.length)
             }
         }
+
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.cityFrom.collect { value ->
-                binding.searchEdFrom.setText(value)
-
+                binding.searchEdFrom.text = value
             }
         }
     }
+    companion object {
+        const val TAG = "ModalBottomSheet"
+    }
 }
+

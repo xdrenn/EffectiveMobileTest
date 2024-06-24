@@ -1,14 +1,17 @@
-package com.example.effectivemobiletest
+package com.example.effectivemobiletest.presentation.ui
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.effectivemobiletest.R
 import com.example.effectivemobiletest.databinding.ActivityMainBinding
+import com.example.effectivemobiletest.presentation.ui.search.SearchFragment
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,5 +31,12 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         navView.setupWithNavController(navController)
+    }
+
+    fun showSearchDialog(bundle: Bundle) {
+        SearchFragment().let { fragment ->
+            fragment.arguments = bundle
+            fragment.show(supportFragmentManager, SearchFragment.TAG)
+        }
     }
 }

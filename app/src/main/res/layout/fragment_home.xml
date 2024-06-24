@@ -64,11 +64,13 @@
 
                 <EditText
                     android:id="@+id/editTextFrom"
+                    style="@style/RegularText"
                     android:layout_width="0dp"
                     android:layout_height="49dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="5dp"
                     android:background="@null"
+                    android:imeOptions="actionNext"
                     android:hint="@string/search_from_hint"
                     android:inputType="text|textCapWords"
                     android:maxLines="1"
@@ -90,19 +92,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/editTextFrom" />
 
-                <EditText
-                    android:id="@+id/editTextTo"
-                    android:layout_width="0dp"
-                    android:layout_height="49dp"
+                <TextView
+                    android:id="@+id/tvTo"
+                    style="@style/RegularText"
+                    android:layout_width="301dp"
+                    android:layout_height="39dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="4dp"
                     android:background="@null"
-                    android:hint="@string/search_to_hint"
-                    android:inputType="text|textCapWords"
-                    android:maxLines="1"
-                    android:textAppearance="@style/RegularText"
-                    android:textColorHint="@color/bright_gray"
+                    android:text="@string/search_to_hint"
+                    android:textColor="@color/bright_gray"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"

@@ -8,21 +8,22 @@
     android:background="@color/dark_gray">
 
     <com.google.android.material.bottomsheet.BottomSheetDragHandleView
-        android:id="@+id/bottomSheetDragHandleView"
+        style="@style/BottomSheetDragHandle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.021" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:padding="8dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintTop_toBottomOf="@+id/cardView">
 
         <androidx.cardview.widget.CardView
@@ -181,7 +182,7 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
             app:cardBackgroundColor="@color/light_gray"
@@ -219,19 +220,15 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.786" />
 
-                <EditText
+                <TextView
                     android:id="@+id/search_ed_from"
                     style="@style/RegularText"
-                    android:layout_width="0dp"
-                    android:layout_height="49dp"
+                    android:layout_width="328dp"
+                    android:layout_height="37dp"
                     android:layout_marginStart="8dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="5dp"
-                    android:background="@null"
-                    android:inputType="text|textCapWords"
-                    android:maxLines="1"
                     android:text="@string/minsk"
-                    android:textAppearance="@style/RegularText"
-                    android:textColorHint="@color/bright_gray"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -251,6 +248,7 @@
 
                 <EditText
                     android:id="@+id/search_ed_to"
+                    style="@style/RegularText"
                     android:layout_width="0dp"
                     android:layout_height="49dp"
                     android:layout_marginStart="8dp"
@@ -271,13 +269,14 @@
                     android:id="@+id/delete_search"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
+                    android:layout_marginTop="14dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginBottom="24dp"
                     android:contentDescription="@string/delete_icon"
                     android:src="@drawable/remove_icon"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="sea"
+                    app:layout_constraintTop_toTopOf="@+id/search_ed_to"
                     app:layout_constraintVertical_bias="0.444" />
 
 

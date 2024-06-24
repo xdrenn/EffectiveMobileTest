@@ -64,4 +64,9 @@
         <item name="android:textAppearance">@style/RegularItalicText</item>
         <item name="cornerRadius">@dimen/toggle_button_corner_radius</item>
     </style>
+
+    <!--Bottom Sheet style-->
+    <style name="BottomSheetDragHandle" parent="Widget.Material3.BottomSheet.DragHandle">
+        <item name="tint">@color/bright_gray</item>
+    </style>
 </resources>

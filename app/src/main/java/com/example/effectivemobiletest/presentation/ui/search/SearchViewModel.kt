@@ -6,7 +6,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 
-@HiltViewModel
 class SearchViewModel : ViewModel() {
 
     private val _cityFrom = MutableStateFlow("")

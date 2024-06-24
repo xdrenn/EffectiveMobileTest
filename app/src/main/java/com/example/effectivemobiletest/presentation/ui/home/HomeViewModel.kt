@@ -20,6 +20,9 @@ class HomeViewModel @Inject constructor(private val offersInteractor: OffersInte
     private val _offers= MutableStateFlow(listOf<OffersDTO.Offer>())
     val offers = _offers.asStateFlow()
 
+    private val _cityFrom = MutableStateFlow("")
+    val cityFrom = _cityFrom.asStateFlow()
+
     init {
         getOffers()
     }
@@ -30,5 +33,9 @@ class HomeViewModel @Inject constructor(private val offersInteractor: OffersInte
          } catch(e: IOException) {
              Log.d("Api error", e.toString())
          }
+    }
+
+    fun setCityFrom(city: String) {
+        _cityFrom.value = city
     }
 }
