@@ -12,13 +12,21 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_navigation_home_to_selectedCityFragment"
-            app:destination="@id/selectedCityFragment" />
+            app:destination="@id/selectedCityFragment"
+            app:popUpTo="@id/navigation_home"/>
+        <action
+            android:id="@+id/action_navigation_home_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/selectedCityFragment"
         android:name="com.example.effectivemobiletest.presentation.ui.selected.SelectedCityFragment"
         android:label="fragment_selected_city"
-        tools:layout="@layout/fragment_selected_city" />
+        tools:layout="@layout/fragment_selected_city" >
+        <action
+            android:id="@+id/action_selectedCityFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
     <dialog
         android:id="@+id/searchFragment"
         android:name="com.example.effectivemobiletest.presentation.ui.search.SearchFragment"
