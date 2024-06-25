@@ -16,9 +16,12 @@ import com.example.effectivemobiletest.presentation.ui.MainActivity
 import com.example.effectivemobiletest.presentation.ui.adapters.ticketsOffersAdapter
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Locale
 
-
+@AndroidEntryPoint
 class SelectedCityFragment : Fragment() {
 
 
@@ -46,12 +49,13 @@ class SelectedCityFragment : Fragment() {
     }
 
     private fun initCitiesFields() {
+        val city = viewModel.cityFrom.value
         viewModel.setCityFrom(arguments?.getString("selectedCityFrom") ?: "")
         viewModel.setCityTo(arguments?.getString("selectedCityTo") ?: "")
 
         binding.changeCities.setOnClickListener {
             viewModel.setCityFrom(viewModel.cityTo.value)
-            viewModel.setCityTo(viewModel.cityFrom.value)
+            viewModel.setCityTo(city)
         }
 
         binding.backBtn.setOnClickListener {
@@ -85,7 +89,8 @@ class SelectedCityFragment : Fragment() {
 
             viewLifecycleOwner.lifecycleScope.launch {
                 viewModel.flightDate.collect { dateInMillis ->
-                    val dateFormat = DateFormat.format("d LLL, E", dateInMillis)
+                    val dateFormatter = SimpleDateFormat("d LLL, E", Locale("ru"))
+                    val dateFormat = dateFormatter.format(dateInMillis)
                     binding.dateChip.text = dateFormat
                 }
             }
@@ -113,7 +118,7 @@ class SelectedCityFragment : Fragment() {
                 adapter?.items = list
                 binding.ticketsOffersRv.adapter = adapter
                 binding.ticketsOffersRv.layoutManager = LinearLayoutManager(
-                    context, LinearLayoutManager.HORIZONTAL, false
+                    context, LinearLayoutManager.VERTICAL, false
                 )
             }
         }

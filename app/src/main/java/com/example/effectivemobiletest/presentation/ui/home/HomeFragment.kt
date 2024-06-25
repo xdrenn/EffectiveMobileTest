@@ -72,6 +72,7 @@ class HomeFragment : Fragment() {
 
     private fun initSearchCityFrom() {
 
+        binding.editTextFrom.filters = arrayOf(CyrillicFilter)
         binding.editTextFrom.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
@@ -89,7 +90,6 @@ class HomeFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.cityFrom.collect { value ->
-                binding.editTextFrom.setText(CyrillicFilter.isCyrillic(value))
                 binding.editTextFrom.setSelection(value.length)
             }
         }
