@@ -62,6 +62,8 @@ dependencies {
 
     //dagger
     implementation(libs.hilt.android)
+    implementation(libs.androidx.room.common)
+    implementation(libs.androidx.room.ktx)
     kapt(libs.hilt.compiler)
 
     testImplementation(libs.junit)

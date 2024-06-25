@@ -43,6 +43,10 @@
         android:id="@+id/ticketsFragment"
         android:name="com.example.effectivemobiletest.presentation.ui.tickets.TicketsFragment"
         android:label="fragment_tickets"
-        tools:layout="@layout/fragment_tickets" />
+        tools:layout="@layout/fragment_tickets" >
+        <action
+            android:id="@+id/action_ticketsFragment_to_selectedCityFragment"
+            app:destination="@id/selectedCityFragment" />
+    </fragment>
 
 </navigation>

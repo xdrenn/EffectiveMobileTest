@@ -81,21 +81,21 @@
                 android:id="@+id/change_cities"
                 android:layout_width="19dp"
                 android:layout_height="19dp"
-                android:layout_marginEnd="12dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="28dp"
                 android:contentDescription="@string/delete_icon"
                 android:src="@drawable/arrows"
                 app:layout_constraintBottom_toBottomOf="@+id/city_from"
-                app:layout_constraintEnd_toEndOf="@+id/city_from"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="0.117" />
 
             <ImageView
                 android:id="@+id/delete"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_marginTop="14dp"
-                android:layout_marginEnd="28dp"
+                android:layout_marginEnd="32dp"
                 android:layout_marginBottom="24dp"
                 android:contentDescription="@string/delete_icon"
                 android:src="@drawable/remove_icon"

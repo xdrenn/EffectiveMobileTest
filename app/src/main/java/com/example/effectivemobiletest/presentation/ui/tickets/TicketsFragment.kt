@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.effectivemobiletest.R
 import com.example.effectivemobiletest.data.model.TicketsDTO
 import com.example.effectivemobiletest.data.model.TicketsOffersDTO
 import com.example.effectivemobiletest.databinding.FragmentTicketsBinding
@@ -39,6 +41,10 @@ class TicketsFragment : Fragment() {
 
         viewModel.setFlightRoute(arguments?.getString("flight") ?: "")
         viewModel.setFlightDate(arguments?.getString("flightDate") ?: "")
+
+        binding.ticketsBackBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_ticketsFragment_to_selectedCityFragment)
+        }
 
         initAdapter()
         initFlightInfo()
