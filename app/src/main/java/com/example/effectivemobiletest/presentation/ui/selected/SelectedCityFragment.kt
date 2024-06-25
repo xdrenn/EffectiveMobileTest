@@ -43,6 +43,10 @@ class SelectedCityFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.allTicketsButton.setOnClickListener {
+          openTicketsFragment()
+        }
+
         initCitiesFields()
         initFilterChips()
         initAdapter()
@@ -122,5 +126,18 @@ class SelectedCityFragment : Fragment() {
                 )
             }
         }
+    }
+
+    private fun openTicketsFragment() {
+        val bundle = Bundle().apply {
+            val flightRoute = "${viewModel.cityFrom.value}-${viewModel.cityTo.value}"
+            putString("flight", flightRoute)
+
+            val dateFormatter = SimpleDateFormat("d LLL", Locale("ru"))
+            val flightDate = dateFormatter.format(viewModel.flightDate.value)
+            putString("flightDate", flightDate.toString())
+        }
+
+        (requireActivity() as MainActivity).openTicketsFragment(bundle = bundle)
     }
 }

@@ -1,7 +1,7 @@
 package com.example.effectivemobiletest.domain.interactors
 
 import com.example.effectivemobiletest.data.model.OffersDTO
-import com.example.effectivemobiletest.data.repository.OffersRepository
+import com.example.effectivemobiletest.data.repository.offers.OffersRepository
 import javax.inject.Inject
 
 class OffersInteractor @Inject constructor(private val offersRepository: OffersRepository) {

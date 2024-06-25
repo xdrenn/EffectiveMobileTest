@@ -1,10 +1,12 @@
 package com.example.effectivemobiletest.di
 
 import com.example.effectivemobiletest.data.remote.ApiService
-import com.example.effectivemobiletest.data.repository.OffersRepository
-import com.example.effectivemobiletest.data.repository.OffersRepositoryImpl
-import com.example.effectivemobiletest.data.repository.TicketsOffersRepository
-import com.example.effectivemobiletest.data.repository.TicketsOffersRepositoryImpl
+import com.example.effectivemobiletest.data.repository.offers.OffersRepository
+import com.example.effectivemobiletest.data.repository.offers.OffersRepositoryImpl
+import com.example.effectivemobiletest.data.repository.tickets.TicketsRepository
+import com.example.effectivemobiletest.data.repository.tickets.TicketsRepositoryImpl
+import com.example.effectivemobiletest.data.repository.ticketsoffers.TicketsOffersRepository
+import com.example.effectivemobiletest.data.repository.ticketsoffers.TicketsOffersRepositoryImpl
 import com.example.effectivemobiletest.utils.Constants
 import dagger.Module
 import dagger.Provides
@@ -57,5 +59,11 @@ class AppModule {
     @Provides
     fun provideTicketsOffersRepository(apiService: ApiService): TicketsOffersRepository {
         return TicketsOffersRepositoryImpl(apiService)
+    }
+
+    @Singleton
+    @Provides
+    fun provideTicketsRepository(apiService: ApiService): TicketsRepository {
+        return TicketsRepositoryImpl(apiService)
     }
 }

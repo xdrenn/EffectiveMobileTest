@@ -54,5 +54,8 @@
     <string name="no_transfers">Без пересадок</string>
     <string name="comfortable">Самый удобный</string>
     <string name="moscow">Москва</string>
+    <string name="_23">23 февраля</string>
+    <string name="_1">, 1 пассажир</string>
+    <string name="nothing_here">Здесь ничего нет</string>
 
 </resources>

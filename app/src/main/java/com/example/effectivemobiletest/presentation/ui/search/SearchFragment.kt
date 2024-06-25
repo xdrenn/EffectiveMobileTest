@@ -29,9 +29,6 @@ class SearchFragment : BottomSheetDialogFragment(R.layout.fragment_search) {
 
     private val viewModel: SearchViewModel by viewModels()
 
-    private var bundle = Bundle()
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

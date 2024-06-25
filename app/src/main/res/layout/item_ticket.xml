@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
@@ -20,12 +22,12 @@
         android:background="@color/dark_gray">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/ticket_price"
             style="@style/SemiboldText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="7dp"
             android:text="@string/_6_990"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,7 +41,7 @@
             android:src="@drawable/dot"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/ticket_price"
             app:layout_constraintVertical_bias="0.727" />
 
         <TextView
@@ -142,7 +144,7 @@
         android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/dark_blue"
         style="@style/CardStyle"
-        app:contentPadding="5dp"
+        app:contentPadding="2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 

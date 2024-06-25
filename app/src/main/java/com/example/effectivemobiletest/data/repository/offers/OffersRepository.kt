@@ -1,4 +1,4 @@
-package com.example.effectivemobiletest.data.repository
+package com.example.effectivemobiletest.data.repository.offers
 
 import com.example.effectivemobiletest.data.model.OffersDTO
 

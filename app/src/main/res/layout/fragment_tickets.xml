@@ -36,7 +36,7 @@
                 app:layout_constraintVertical_bias="0.544" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/flight_route"
                 style="@style/RegularText"
                 android:textSize="20sp"
                 android:layout_width="wrap_content"
@@ -48,55 +48,69 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/flight_date"
                 style="@style/RegularText"
-                android:textColor="@color/bright_gray"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:text="23 февраля, 1 пассажир"
+                android:text="@string/_23"
+                android:textColor="@color/bright_gray"
                 app:layout_constraintStart_toEndOf="@+id/tickets_back_btn"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                app:layout_constraintTop_toBottomOf="@+id/flight_route" />
+
+            <TextView
+                style="@style/RegularText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/_1"
+                android:textColor="@color/bright_gray"
+                app:layout_constraintStart_toEndOf="@id/flight_date"
+                app:layout_constraintTop_toBottomOf="@+id/flight_route" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tickets_rv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/action_button_group"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView3"
+        app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/item_ticket"/>
 
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/action_button_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/action_button_filter"
+            style="@style/ButtonFilterCharts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:icon="@drawable/filter_icon"
             android:text="@string/toggle_button_filter"
-            style="@style/ButtonFilterCharts"
-           />
+            app:icon="@drawable/filter_icon" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/action_button_chart"
+            style="@style/ButtonFilterCharts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:icon="@drawable/charts_icon"
             android:text="@string/prices_chart"
-            style="@style/ButtonFilterCharts"/>
+            app:icon="@drawable/charts_icon" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
 

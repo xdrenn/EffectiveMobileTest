@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_selectedCityFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_selectedCityFragment_to_ticketsFragment"
+            app:destination="@id/ticketsFragment" />
     </fragment>
     <dialog
         android:id="@+id/searchFragment"
@@ -36,5 +39,10 @@
             android:id="@+id/action_searchFragment_to_selectedCityFragment"
             app:destination="@id/selectedCityFragment" />
     </dialog>
+    <fragment
+        android:id="@+id/ticketsFragment"
+        android:name="com.example.effectivemobiletest.presentation.ui.tickets.TicketsFragment"
+        android:label="fragment_tickets"
+        tools:layout="@layout/fragment_tickets" />
 
 </navigation>
