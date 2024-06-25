@@ -9,7 +9,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.effectivemobiletest.databinding.FragmentSelectedCityBinding
-import android.text.format.DateFormat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.effectivemobiletest.data.model.TicketsOffersDTO
 import com.example.effectivemobiletest.presentation.ui.MainActivity
@@ -23,7 +22,6 @@ import java.util.Locale
 
 @AndroidEntryPoint
 class SelectedCityFragment : Fragment() {
-
 
     private var _binding: FragmentSelectedCityBinding? = null
     private val binding get() = _binding!!
@@ -114,7 +112,6 @@ class SelectedCityFragment : Fragment() {
     }
 
     private fun initAdapter() {
-
         adapter = ListDelegationAdapter(ticketsOffersAdapter())
 
         viewLifecycleOwner.lifecycleScope.launch {
@@ -137,7 +134,6 @@ class SelectedCityFragment : Fragment() {
             val flightDate = dateFormatter.format(viewModel.flightDate.value)
             putString("flightDate", flightDate.toString())
         }
-
         (requireActivity() as MainActivity).openTicketsFragment(bundle = bundle)
     }
 }

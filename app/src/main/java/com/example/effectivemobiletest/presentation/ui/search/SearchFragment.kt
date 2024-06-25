@@ -14,12 +14,10 @@ import androidx.lifecycle.lifecycleScope
 import com.example.effectivemobiletest.R
 import com.example.effectivemobiletest.databinding.FragmentSearchBinding
 import com.example.effectivemobiletest.presentation.ui.MainActivity
-import com.example.effectivemobiletest.presentation.ui.selected.SelectedCityFragment
 import com.example.effectivemobiletest.utils.CyrillicFilter
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class SearchFragment : BottomSheetDialogFragment(R.layout.fragment_search) {
@@ -78,7 +76,6 @@ class SearchFragment : BottomSheetDialogFragment(R.layout.fragment_search) {
     private fun initSearch() {
         binding.searchEdTo.filters = arrayOf(CyrillicFilter)
         binding.searchEdFrom.filters = arrayOf(CyrillicFilter)
-
         binding.searchEdTo.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
@@ -118,7 +115,6 @@ class SearchFragment : BottomSheetDialogFragment(R.layout.fragment_search) {
             putString("selectedCityFrom", viewModel.cityFrom.value)
             putString("selectedCityTo", viewModel.cityTo.value)
         }
-
         (requireActivity() as MainActivity).openSelectedCityFragment(bundle = bundle)
 
     }

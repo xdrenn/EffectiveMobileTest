@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.effectivemobiletest.R
 import com.example.effectivemobiletest.data.model.TicketsDTO
-import com.example.effectivemobiletest.data.model.TicketsOffersDTO
 import com.example.effectivemobiletest.databinding.FragmentTicketsBinding
 import com.example.effectivemobiletest.presentation.ui.adapters.ticketsAdapter
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter

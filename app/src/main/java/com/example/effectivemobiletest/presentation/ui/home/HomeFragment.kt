@@ -1,32 +1,24 @@
 package com.example.effectivemobiletest.presentation.ui.home
 
-import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
-import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.effectivemobiletest.R
 import com.example.effectivemobiletest.data.model.OffersDTO
 import com.example.effectivemobiletest.databinding.FragmentHomeBinding
 import com.example.effectivemobiletest.presentation.ui.MainActivity
 import com.example.effectivemobiletest.presentation.ui.adapters.offersAdapter
-import com.example.effectivemobiletest.presentation.ui.search.SearchFragment
-import com.example.effectivemobiletest.presentation.ui.selected.SelectedCityFragment
-import com.example.effectivemobiletest.utils.Constants
 import com.example.effectivemobiletest.utils.CyrillicFilter
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import java.util.regex.Pattern
+
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -37,7 +29,6 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
 
     private var adapter: ListDelegationAdapter<List<OffersDTO.Offer>>? = null
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -56,7 +47,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun initAdapter() {
-
         adapter = ListDelegationAdapter(offersAdapter())
 
         viewLifecycleOwner.lifecycleScope.launch {
@@ -71,7 +61,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun initSearchCityFrom() {
-
         binding.editTextFrom.filters = arrayOf(CyrillicFilter)
         binding.editTextFrom.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -99,7 +88,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun showSearchInfo() {
-
         val bundle = Bundle().apply {
             putString("cityFrom",  viewModel.cityFrom.value)
         }
